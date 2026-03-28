@@ -1,5 +1,5 @@
 const TOTAL = 50;
-const QUIZ_MS = 20 * 60 * 1000;
+const QUIZ_MS = 30 * 60 * 1000;
 
 const els = {
   stageStart: document.getElementById("stageStart"),

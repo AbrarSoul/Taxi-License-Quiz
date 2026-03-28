@@ -1,6 +1,6 @@
 # Taxi License Quiz
 
-A small, static web app for practicing taxi-driver knowledge with **50 multiple-choice questions** (Finnish), a **20-minute** countdown, and immediate feedback after each answer. There is no backend: everything runs in the browser.
+A small, static web app for practicing taxi-driver knowledge with **50 multiple-choice questions** (Finnish), a **30-minute** countdown, and immediate feedback after each answer. There is no backend: everything runs in the browser.
 
 ## Features
 
