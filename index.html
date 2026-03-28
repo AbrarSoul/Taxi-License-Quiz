@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Ask browser to revalidate this page so cached HTML doesn’t pin old asset URLs -->
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <title>Taxi License Quiz</title>
+  <!-- PNG first: reliable in all browsers; SVG for sharp tabs where supported -->
+  <link rel="icon" href="favicon.png?v=3" type="image/png" sizes="64x64" />
+  <link rel="icon" href="icon.svg?v=3" type="image/svg+xml" sizes="any" />
+  <link rel="apple-touch-icon" href="favicon.png?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+<body>
+  <div class="app-bg" aria-hidden="true"></div>
+
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-mark" src="icon.svg?v=3" alt="" width="40" height="40" decoding="async" />
+        <div class="brand-text">
+          <span class="brand-name">Taxi License Model Quiz</span>
+          <span class="brand-tag">Professional assessment</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="card stage" id="stageStart" aria-labelledby="startTitle">
+      <div class="card-inner">
+        <p class="eyebrow">Welcome</p>
+        <h1 class="title" id="startTitle">Taxi knowledge assessment</h1>
+        <p class="lede">
+          Fifty multiple-choice questions, one point per correct answer. Questions advance one at a time.
+          You have <strong>20 minutes</strong> from when you press Start; the countdown is shown during the quiz.
+        </p>
+        <ul class="bullets">
+          <li>4 options per question</li>
+          <li>1 mark for correct, 0 for incorrect</li>
+          <li>20-minute time limit; quiz ends when time runs out</li>
+          <li>Progress is saved only in this session</li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-lg" id="btnStart">
+          Start quiz
+        </button>
+      </div>
+    </section>
+
+    <section class="card stage" id="stageQuiz" hidden aria-live="polite">
+      <div class="quiz-head">
+        <div class="quiz-meta">
+          <div class="progress-wrap">
+            <div class="progress-label">
+              <span id="qLabel">Question 1 of 50</span>
+              <span class="progress-pct" id="qPct">0%</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+          <div class="timer-panel" role="timer" aria-live="polite" aria-atomic="true" aria-label="Time remaining for the quiz">
+            <span class="timer-caption">Time left</span>
+            <span class="timer-value" id="timerDisplay">20:00</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-inner quiz-body">
+        <p class="q-index" id="qIndex">Q1</p>
+        <h2 class="question-text" id="questionText"></h2>
+        <div class="options" id="options" role="radiogroup" aria-labelledby="questionText"></div>
+        <p class="feedback" id="feedback" hidden role="status"></p>
+        <div class="quiz-actions">
+          <button type="button" class="btn btn-ghost" id="btnNext" disabled>
+            Next question
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card stage" id="stageResult" hidden aria-labelledby="resultTitle">
+      <div class="card-inner result-inner">
+        <p class="eyebrow">Results</p>
+        <h1 class="title" id="resultTitle">You are all set</h1>
+        <div class="score-ring-wrap">
+          <div class="score-ring" id="scoreRing" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="score-svg">
+              <circle class="score-track" cx="60" cy="60" r="52" />
+              <circle class="score-bar" id="scoreBar" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="score-center">
+              <span class="score-value" id="finalScore">0</span>
+              <span class="score-denom">/ 50</span>
+            </div>
+          </div>
+        </div>
+        <p class="result-summary" id="resultSummary"></p>
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="btnRetry">Try again</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card stage" id="stageError" hidden>
+      <div class="card-inner">
+        <p class="eyebrow error">Setup</p>
+        <h1 class="title">Cannot load questions</h1>
+        <p class="lede" id="errorText">
+          Open this folder with a local web server so <code>questions.json</code> can load (browsers block file access from <code>file://</code>).
+        </p>
+        <p class="hint">From this folder in PowerShell:</p>
+        <pre class="code-block">python -m http.server 8080</pre>
+        <p class="hint-sub">Then visit <code>http://localhost:8080</code></p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js?v=5"></script>
+</body>
+</html>

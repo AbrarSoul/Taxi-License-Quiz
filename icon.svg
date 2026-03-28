@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="iconBg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="iconSheen" x1="256" y1="48" x2="256" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#iconBg)"/>
+  <rect width="512" height="512" rx="120" fill="url(#iconSheen)"/>
+  <g fill="#ffffff">
+    <!-- Roof sign -->
+    <rect x="152" y="132" width="208" height="92" rx="20"/>
+    <!-- Body -->
+    <path d="M130 264c0-24 20-44 44-44h164c24 0 44 20 44 44v118c0 16-13 29-29 29H159c-16 0-29-13-29-29V264z"/>
+    <!-- Windows -->
+    <rect x="168" y="288" width="60" height="40" rx="10" fill="#e0e7ff"/>
+    <rect x="284" y="288" width="60" height="40" rx="10" fill="#e0e7ff"/>
+  </g>
+  <!-- License / pass badge -->
+  <circle cx="392" cy="152" r="52" fill="#ffffff"/>
+  <path fill="none" stroke="#4f46e5" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" d="M364 154l20 20 44-48"/>
+</svg>

@@ -1,0 +1,552 @@
+[
+    {
+      "id": 1,
+      "question": "Mitä asiakaslähtöinen palvelu tarkoittaa taksinkuljettajan työssä?",
+      "options": [
+        "Kuljettaja päättää asiakkaan puolesta reitin",
+        "Asiakkaan tarpeet otetaan huomioon palvelun aikana",
+        "Ajetaan aina lyhintä reittiä riippumatta asiakkaan toiveista",
+        "Keskustellaan asiakkaan kanssa politiikasta"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 2,
+      "question": "Mikä on sallittu veren alkoholipitoisuus taksinkuljettajalle ajon aikana?",
+      "options": [
+        "0,5 ‰",
+        "0,2 ‰",
+        "0,0 ‰",
+        "0,8 ‰"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 3,
+      "question": "Mihin taksamittaria käytetään?",
+      "options": [
+        "Laskemaan nopeutta",
+        "Navigoimaan",
+        "Laskemaan matkan hinta",
+        "Soittamaan hätäpuhelu"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 4,
+      "question": "Mitä sinun tulee tehdä, jos asiakas käyttäytyy uhkaavasti?",
+      "options": [
+        "Poistaa asiakas väkisin autosta",
+        "Provosoida asiakasta lisää",
+        "Säilyttää rauhallisuus ja tarvittaessa soittaa poliisi",
+        "Jättää asiakas yksin ja ajaa pois"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 5,
+      "question": "Saako taksinkuljettaja kieltäytyä ottamasta asiakasta lyhyelle matkalle?",
+      "options": [
+        "Kyllä, jos matka on alle 2 km",
+        "Ei, kuljettajan on otettava kaikki asiakkaat",
+        "Kyllä, jos asiakas on humalassa",
+        "Ei, ellei asiakkaasta ole vaaraa"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": 6,
+      "question": "Mikä seuraavista kuuluu taksinkuljettajan vastuisiin?",
+      "options": [
+        "Tarkistaa asiakkaan henkilöllisyys",
+        "Huolehtia auton siisteydestä ja turvallisuudesta",
+        "Kieltäytyä kaikista maksukorteista",
+        "Antaa kyydin vain kanta-asiakkaille"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 7,
+      "question": "Jos asiakas käyttää pyörätuolia, mitä kuljettajan pitää tehdä?",
+      "options": [
+        "Sanoa että ei voi ottaa kyytiin",
+        "Auttaa asiakas turvallisesti kyytiin ja pois",
+        "Pyytää asiakasta odottamaan toista taksia",
+        "Veloittaa tuplahinta"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 8,
+      "question": "Milloin turvavyötä ei tarvitse käyttää taksissa?",
+      "options": [
+        "Jos matka on alle 1 km",
+        "Jos asiakas istuu takaistuimella",
+        "Jos lääketieteellinen syy on todistettu",
+        "Jos kuljettaja päättää niin"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 9,
+      "question": "Mikä on taksinkuljettajan tärkein asiakaspalvelutaito?",
+      "options": [
+        "Nopea ajotapa",
+        "Pitkä työkokemus",
+        "Hyvä ulkonäkö",
+        "Kohteliaisuus ja selkeä viestintä"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": 10,
+      "question": "Miten toimit, jos asiakas ei maksa kyydistä?",
+      "options": [
+        "Uhkailet asiakasta maksamaan",
+        "Aja asiakas poliisiasemalle ilman lupaa",
+        "Pyydät maksua, jos ei onnistu, soita poliisi",
+        "Suljet oven ja ajat pois"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 11,
+      "question": "Kuka määrittää taksikyydin hinnan?",
+      "options": [
+        "Kuljettaja itse",
+        "Asiakas",
+        "Taksiyritys tai kuljettaja, mutta se on ilmoitettava selkeästi",
+        "Poliisi"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 12,
+      "question": "Miten usein ajolupa on uusittava taksinkuljettajalle?",
+      "options": [
+        "2 vuoden välein",
+        "5 vuoden välein",
+        "Vain kerran elämän aikana",
+        "Joka vuosi"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 13,
+      "question": "Mistä näet asiakkaan avustamistarpeen etukäteen, jos kyyti on tilattu?",
+      "options": [
+        "Aina kysytään puhelimessa",
+        "Kuljettaja ei koskaan tiedä",
+        "Se ilmoitetaan kyytitilauksessa",
+        "Asiakas tuo lääkärintodistuksen"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 14,
+      "question": "Mikä on oikea toiminta onnettomuustilanteessa?",
+      "options": [
+        "Jatkat ajoa mahdollisimman nopeasti",
+        "Otat kuvan ja julkaiset somessa",
+        "Varmistat turvallisuuden, soitat hätäkeskukseen",
+        "Huolehdit vain asiakkaasta"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 15,
+      "question": "Milloin taksiliikennelupa vaaditaan?",
+      "options": [
+        "Vain jos ajaa yli 10 km matkoja",
+        "Aina, kun ajetaan maksusta",
+        "Jos kyydissä on enemmän kuin 1 asiakas",
+        "Jos käytetään taksamittaria"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 16,
+      "question": "Mihin KELA-taksit liittyvät?",
+      "options": [
+        "Opiskelijakyyteihin",
+        "Hääkuljetuksiin",
+        "Lääkärikäyntien ja hoitomatkojen kuljetuksiin",
+        "Kaupunkikiertoajeluihin"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 17,
+      "question": "Mikä on oikea toiminta, jos asiakas pyytää hiljaisuutta?",
+      "options": [
+        "Soitat radion kovemmalle",
+        "Keskustelet silti",
+        "Kunnioitat toivetta ja ajat hiljaisuudessa",
+        "Pyydät asiakasta poistumaan"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 18,
+      "question": "Mitä tarkoittaa esteetön taksi?",
+      "options": [
+        "Taksi, jolla ei ole veroja",
+        "Taksi, joka voi ottaa myös liikuntarajoitteiset asiakkaat",
+        "Vain sähköautot",
+        "Taksi ilman kylttiä"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 19,
+      "question": "Missä tilanteessa voit kieltäytyä asiakkaasta?",
+      "options": [
+        "Asiakas on ulkomaalainen",
+        "Asiakas ei puhu suomea",
+        "Asiakas on väkivaltainen tai uhkaava",
+        "Asiakas haluaa maksaa käteisellä"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 20,
+      "question": "Miten käsittelet asiakkaan valituksen?",
+      "options": [
+        "Sivuutat sen",
+        "Vastaat uhkaavasti",
+        "Kuuntelet rauhallisesti ja tarvittaessa ohjaat eteenpäin",
+        "Keskeytät kyydin"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 21,
+      "question": "Taksinkuljettajan pitää tuntea…",
+      "options": [
+        "Asiakkaan henkilökohtainen historia",
+        "Paikallinen maantieto ja osoitteet",
+        "Vain pääkaupunkiseutu",
+        "Vain reitit omalle kotiin"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 22,
+      "question": "Mikä seuraavista EI ole sallittua?",
+      "options": [
+        "Turvavyön käyttämättä jättäminen ilman syytä",
+        "Asiakkaan auttaminen",
+        "Ajaminen GPS:n avulla",
+        "Maksun hyväksyminen kortilla"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 23,
+      "question": "Mikä on taksamittarin rooli?",
+      "options": [
+        "Mittaa ilman lämpötilaa",
+        "Laskuttaa asiakasta oikein",
+        "Toimii GPS:nä",
+        "Antaa asiakastiedot"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 24,
+      "question": "Mitä pitää näkyä selvästi taksissa?",
+      "options": [
+        "Kuljettajan nimi ja kuva",
+        "Asiakkaan nimi",
+        "Auton rekisteriote",
+        "Radioasemat"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 25,
+      "question": "Milloin asiakas ei tarvitse turvavyötä?",
+      "options": [
+        "Jos hänellä on lääkärintodistus vapautuksesta",
+        "Jos kuljettaja niin sanoo",
+        "Jos matka on lyhyt",
+        "Jos istuu keskellä"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 26,
+      "question": "Miten toimit, jos asiakkaalla on opaskoira?",
+      "options": [
+        "Kieltäydyt kuljettamasta",
+        "Perit lisämaksun",
+        "Sallit koiran, kuten laki määrää",
+        "Pyydät vaihtamaan koiran pienempään"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 27,
+      "question": "Kuka vastaa siitä, että taksi on kunnossa?",
+      "options": [
+        "Asiakas",
+        "Taksiyhtiö",
+        "Kuljettaja",
+        "Poliisi"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 28,
+      "question": "Mikä on paras tapa parantaa asiakaskokemusta?",
+      "options": [
+        "Ajaa mahdollisimman lujaa",
+        "Puhua puhelimessa koko matkan",
+        "Kuunnella asiakkaan toiveita ja olla ystävällinen",
+        "Soittaa kovaa musiikkia"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 29,
+      "question": "Mitä teet, jos epäilet asiakkaan jääneen auton taakse?",
+      "options": [
+        "Aja heti pois",
+        "Tarkistat peilit ja nouset tarvittaessa tarkistamaan",
+        "Soitat työpaikalle",
+        "Jätät vastuun asiakkaalle"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 30,
+      "question": "Mikä on Traficom?",
+      "options": [
+        "Taksifirma",
+        "Viranomainen, joka hallinnoi liikennelupia",
+        "Hätäpuhelinpalvelu",
+        "Asiakasjärjestelmä"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 31,
+      "question": "Miten taksinkuljettaja voi parhaiten estää riitatilanteita asiakkaan kanssa?",
+      "options": [
+        "Ajaa mahdollisimman nopeasti",
+        "Kuuntelemalla ja kommunikoimalla selkeästi",
+        "Ei sano mitään koko matkan aikana",
+        "Kieltäytymällä ottamasta vaikeita asiakkaita"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 32,
+      "question": "Mitä tarkoittaa, jos asiakas on “kuljetusvelvollinen”?",
+      "options": [
+        "Asiakas saa päättää reitin",
+        "Asiakas maksaa käteisellä",
+        "Kuljettajan on otettava asiakas, ellei ole erityistä estettä",
+        "Asiakas ei tarvitse turvavyötä"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 33,
+      "question": "Mikä on esteetön ajoneuvo?",
+      "options": [
+        "Ajoneuvo, joka voi kuljettaa pyörätuoliasiakkaan",
+        "Auto ilman jarruja",
+        "Auto, jossa ei ole verhoilua",
+        "Taksiauto ilman mittaria"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 34,
+      "question": "Mitä tietoja kuljettajalla pitää olla mukana ajaessaan taksia?",
+      "options": [
+        "Passi ja viisumi",
+        "Ainoastaan ajokortti",
+        "Rekisteröintitodistus",
+        "Ajokortti, ajolupa ja mahdollisesti liikennelupa"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": 35,
+      "question": "Mitä tarkoittaa asiakkaan tietosuojan kunnioittaminen?",
+      "options": [
+        "Asiakastiedot ja keskustelut säilyvät luottamuksellisina",
+        "Asiakas ei saa kysyä kuljettajasta",
+        "Kuljettaja voi kuvata asiakasta ilman lupaa",
+        "Kaikki keskustelut tallennetaan automaattisesti"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 36,
+      "question": "Milloin taksinkuljettaja voi pyytää asiakkaalta lisämaksun?",
+      "options": [
+        "Kun asiakas tekee välipysähdyksiä, jos ilmoitettu hinnastossa",
+        "Aina kun asiakas on myöhässä",
+        "Jos matka kestää yli 10 minuuttia",
+        "Kun kuljettaja haluaa"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 37,
+      "question": "Miten toimitaan, jos asiakas tarvitsee sairaankuljetusta kiireellisesti?",
+      "options": [
+        "Kuljetetaan heti ilman ilmoitusta",
+        "Soitetaan 112 ja annetaan ammattilaisten hoitaa",
+        "Annetaan vettä ja odotetaan",
+        "Viedään asiakas omalle lääkärille"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 38,
+      "question": "Milloin kuljettajan pitää käyttää huomioliiviä?",
+      "options": [
+        "Aina ajon aikana",
+        "Sisätiloissa",
+        "Jos liikkuu ajoneuvon ulkopuolella tiellä tai pysäköidyllä alueella",
+        "Kun sataa"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 39,
+      "question": "Mitä tulee tehdä, jos huomaat auton renkaan olevan tyhjä?",
+      "options": [
+        "Jatkat ajoa, jos matka on lyhyt",
+        "Ilmoitat asiakkaalle ja jatkat varovasti",
+        "Vaihdat renkaan tai pyydät apua ennen jatkamista",
+        "Aja kovempaa päästäksesi nopeasti perille"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 40,
+      "question": "Mikä on taksin kattokilven tarkoitus?",
+      "options": [
+        "Koriste",
+        "Näyttää auton olevan käytössä tai vapaana",
+        "Mainostaa yritystä",
+        "Toimia navigaattorina"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 41,
+      "question": "Voiko asiakas valita reitin itse?",
+      "options": [
+        "Ei koskaan",
+        "Vain jos maksaa enemmän",
+        "Kyllä, ellei se ole turvallisuusriski",
+        "Vain jos kuljettaja sallii"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 42,
+      "question": "Mikä on “asiakaspalautteen” merkitys taksinkuljettajalle?",
+      "options": [
+        "Se auttaa kehittämään palvelua",
+        "Sillä ei ole merkitystä",
+        "Se voidaan aina ohittaa",
+        "Se on vain negatiivista"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 43,
+      "question": "Mikä seuraavista voi olla taksinkuljettajan este ottaa asiakas kyytiin?",
+      "options": [
+        "Asiakas on pyörätuolissa",
+        "Asiakas ei puhu suomea",
+        "Asiakas käyttäytyy väkivaltaisesti",
+        "Asiakas haluaa maksaa kortilla"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 44,
+      "question": "Milloin kuljettaja voi keskeyttää kyydin?",
+      "options": [
+        "Jos asiakas loukkaa sääntöjä tai aiheuttaa vaaraa",
+        "Jos matka on liian lyhyt",
+        "Jos asiakas on eri mieltä reitistä",
+        "Jos kuljettajalla on kiire"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 45,
+      "question": "Miten toimitaan, jos asiakas pyytää kuittia?",
+      "options": [
+        "Sanotaan ettei ole mahdollista",
+        "Veloitetaan lisämaksu",
+        "Annetaan kuitti heti tai sähköisesti",
+        "Pyydetään asiakasta hakemaan kuitti toimistolta"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 46,
+      "question": "Mikä on paras tapa käsitellä stressaavaa asiakastilannetta?",
+      "options": [
+        "Reagoida tunteella",
+        "Kieltäytyä kuuntelemasta",
+        "Korottaa ääntä",
+        "Pysyä rauhallisena ja ammatillisena"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": 47,
+      "question": "Milloin taksilla ajaminen on laitonta?",
+      "options": [
+        "Jos ei ole voimassa olevaa ajolupaa tai liikennelupaa",
+        "Jos asiakas ei maksa",
+        "Jos ei osaa reittejä ulkoa",
+        "Jos kuljettajalla on kiire"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 48,
+      "question": "Mikä seuraavista on asiakaspalvelun perusperiaate?",
+      "options": [
+        "Nopeus ennen kaikkea",
+        "Asiakas on aina väärässä",
+        "Kohteliaisuus ja kunnioitus",
+        "Vain hinnalla on merkitystä"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 49,
+      "question": "Mikä on KELA-kuljetusten erityispiirre?",
+      "options": [
+        "Ne ovat aina ilmaisia",
+        "Niitä voivat käyttää vain tietyt asiakkaat terveyssyistä",
+        "Ne ajetaan ilman lupaa",
+        "Ne ovat vain yöaikaan"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 50,
+      "question": "Mikä on taksinkuljettajan velvollisuus, jos huomaa asiakkaan jättäneen tavaran autoon?",
+      "options": [
+        "Pitää se itsellään",
+        "Heittää se pois",
+        "Palauttaa se asiakkaalle tai ilmoittaa poliisille / löytötavaroihin",
+        "Myydä se eteenpäin"
+      ],
+      "correctIndex": 2
+    }
+  ]
