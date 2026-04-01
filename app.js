@@ -1,6 +1,9 @@
 const QUIZ_MS = 30 * 60 * 1000;
 
 const els = {
+  stageLanding: document.getElementById("stageLanding"),
+  appShell: document.getElementById("appShell"),
+  btnEnterApp: document.getElementById("btnEnterApp"),
   stageStart: document.getElementById("stageStart"),
   stageQuiz: document.getElementById("stageQuiz"),
   stageResult: document.getElementById("stageResult"),
@@ -73,6 +76,7 @@ const quizzes = [
 let selectedQuizId = quizzes[0].id;
 let availableQuizIds = new Set([selectedQuizId]);
 let pendingQuizId = null;
+let appInitialized = false;
 
 const keys = ["A", "B", "C", "D"];
 
@@ -286,17 +290,26 @@ function startQuiz() {
   startQuizTimer();
 }
 
+function syncAccordionPanels() {
+  if (!els.quizList) return;
+  els.quizList.querySelectorAll(".quiz-accordion-item").forEach((item) => {
+    const id = item.dataset.quizId;
+    const open = id === selectedQuizId;
+    const trigger = item.querySelector(".quiz-accordion-trigger");
+    const panel = item.querySelector(".quiz-accordion-panel");
+    trigger?.setAttribute("aria-expanded", open ? "true" : "false");
+    if (panel) panel.hidden = !open;
+    item.classList.toggle("is-expanded", open);
+    item.classList.toggle("active", open);
+  });
+}
+
 function setSelectedQuizUI() {
   const q = quizzes.find((x) => x.id === selectedQuizId) ?? quizzes[0];
   if (els.currentQuizName) els.currentQuizName.textContent = `Taxi License Model Quiz — ${q.title}`;
   if (els.currentQuizTag) els.currentQuizTag.textContent = q.subtitle;
   if (els.sidebarSubtitle) els.sidebarSubtitle.textContent = `Selected: ${q.title}`;
-
-  if (els.quizList) {
-    [...els.quizList.querySelectorAll(".quiz-item")].forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.quizId === selectedQuizId);
-    });
-  }
+  syncAccordionPanels();
 }
 
 function setTotalsUI() {
@@ -313,22 +326,39 @@ function buildQuizList(readyIds = new Set([quizzes[0].id])) {
 
   els.quizList.innerHTML = "";
   quizzes.forEach((q) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "quiz-item";
-    btn.dataset.quizId = q.id;
+    const item = document.createElement("div");
+    item.className = "quiz-accordion-item";
+    item.dataset.quizId = q.id;
     const isReady = readyIds.has(q.id);
-    btn.innerHTML = `
-      <span class="quiz-item-main">
-        <span class="quiz-item-title"></span>
-        <span class="quiz-item-meta"></span>
-      </span>
-      <span class="quiz-item-badge">${isReady ? "Ready" : "Soon"}</span>
+    const panelId = `quiz-panel-${q.id}`;
+    const triggerId = `quiz-trigger-${q.id}`;
+    item.innerHTML = `
+      <button type="button" class="quiz-accordion-trigger" id="${triggerId}" aria-expanded="false" aria-controls="${panelId}">
+        <span class="quiz-accordion-trigger-main">
+          <span class="quiz-accordion-title"></span>
+          <span class="quiz-accordion-badge">${isReady ? "Ready" : "Soon"}</span>
+        </span>
+        <span class="quiz-accordion-chevron" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.5 5.25L7 8.75l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+      <div class="quiz-accordion-panel" id="${panelId}" role="region" aria-labelledby="${triggerId}" hidden>
+        <p class="quiz-accordion-count"></p>
+        <p class="quiz-accordion-hint"></p>
+      </div>
     `;
-    btn.querySelector(".quiz-item-title").textContent = q.title;
-    btn.querySelector(".quiz-item-meta").textContent = `${q.questionCount} Questions`;
-    btn.addEventListener("click", () => selectQuiz(q.id));
-    els.quizList.appendChild(btn);
+    item.querySelector(".quiz-accordion-title").textContent = q.title;
+    item.querySelector(".quiz-accordion-count").textContent = `${q.questionCount} Questions`;
+    item.querySelector(".quiz-accordion-hint").textContent = isReady
+      ? "Details load in the main workspace. Use Start quiz when you are ready."
+      : "This part will open when its questions file is deployed.";
+
+    item.querySelector(".quiz-accordion-trigger").addEventListener("click", () => {
+      void selectQuiz(q.id);
+    });
+    els.quizList.appendChild(item);
   });
 
   setSelectedQuizUI();
@@ -402,12 +432,24 @@ els.btnRetry.addEventListener("click", () => {
 
 injectScoreGradient();
 
-(async function init() {
+async function bootstrapApp() {
   availableQuizIds = new Set([quizzes[0].id]);
   buildQuizList(availableQuizIds);
   await selectQuiz(selectedQuizId);
   await refreshReadyQuizBadges();
-})();
+}
+
+if (els.btnEnterApp && els.stageLanding && els.appShell) {
+  els.btnEnterApp.addEventListener("click", async () => {
+    els.stageLanding.hidden = true;
+    els.appShell.hidden = false;
+    document.body.classList.remove("landing-visible");
+    if (!appInitialized) {
+      appInitialized = true;
+      await bootstrapApp();
+    }
+  });
+}
 
 if (els.btnBackToPart1) {
   els.btnBackToPart1.addEventListener("click", () => selectQuiz(quizzes[0].id));
@@ -435,8 +477,8 @@ document.addEventListener(
     e.preventDefault();
     e.stopImmediatePropagation();
 
-    const quizBtn = e.target.closest?.(".quiz-item");
-    const pendingPartId = quizBtn?.dataset?.quizId ?? null;
+    const accItem = e.target.closest?.(".quiz-accordion-item");
+    const pendingPartId = accItem?.dataset?.quizId ?? null;
     openQuitQuizModal(pendingPartId);
   },
   true
