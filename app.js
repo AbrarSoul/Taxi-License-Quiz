@@ -4,6 +4,7 @@ const els = {
   stageLanding: document.getElementById("stageLanding"),
   appShell: document.getElementById("appShell"),
   btnEnterApp: document.getElementById("btnEnterApp"),
+  stagePick: document.getElementById("stagePick"),
   stageStart: document.getElementById("stageStart"),
   stageQuiz: document.getElementById("stageQuiz"),
   stageResult: document.getElementById("stageResult"),
@@ -38,6 +39,10 @@ const els = {
   quitModalBackdrop: document.getElementById("quitModalBackdrop"),
   quitModalCancel: document.getElementById("quitModalCancel"),
   quitModalConfirm: document.getElementById("quitModalConfirm"),
+  reloadConfirmModal: document.getElementById("reloadConfirmModal"),
+  reloadModalBackdrop: document.getElementById("reloadModalBackdrop"),
+  reloadModalStay: document.getElementById("reloadModalStay"),
+  reloadModalReload: document.getElementById("reloadModalReload"),
 };
 
 let questions = [];
@@ -53,34 +58,35 @@ const quizzes = [
   {
     id: "part1",
     title: "Part 1",
-    subtitle: "Existing quiz",
     file: "./questions1.json",
     questionCount: 50,
   },
   {
     id: "part2",
     title: "Part 2",
-    subtitle: "50 additional questions",
     file: "./questions2.json",
     questionCount: 50,
   },
   {
     id: "part3",
     title: "Part 3",
-    subtitle: "50 practice questions",
     file: "./questions3.json",
     questionCount: 50,
   },
 ];
 
-let selectedQuizId = quizzes[0].id;
-let availableQuizIds = new Set([selectedQuizId]);
+let selectedQuizId = null;
+let availableQuizIds = new Set([quizzes[0].id]);
 let pendingQuizId = null;
 let appInitialized = false;
 
 const keys = ["A", "B", "C", "D"];
 
 let quitModalPendingPartId = null;
+/** When true, the next beforeunload is allowed (user confirmed reload in our dialog). */
+let allowUnload = false;
+/** Resolves when user dismisses an intercepted reload (Stay); set only by Navigation API handler. */
+let reloadInterceptResolve = null;
 
 function isQuizActive() {
   return !els.stageQuiz.hidden;
@@ -95,8 +101,39 @@ function exitQuizToWelcome() {
   showStage("start");
 }
 
+function closeReloadConfirmModal() {
+  if (!els.reloadConfirmModal) return;
+  els.reloadConfirmModal.hidden = true;
+  const resolve = reloadInterceptResolve;
+  reloadInterceptResolve = null;
+  if (resolve) resolve();
+}
+
+function openReloadConfirmModal() {
+  if (!els.reloadConfirmModal) return;
+  closeQuitQuizModal();
+  els.reloadConfirmModal.hidden = false;
+  requestAnimationFrame(() => els.reloadModalStay?.focus());
+}
+
+function confirmReloadPage() {
+  const resolve = reloadInterceptResolve;
+  reloadInterceptResolve = null;
+  if (els.reloadConfirmModal) els.reloadConfirmModal.hidden = true;
+  allowUnload = true;
+  if (resolve) resolve();
+  window.location.reload();
+}
+
+function isReloadShortcut(e) {
+  if (e.key === "F5") return true;
+  if ((e.ctrlKey || e.metaKey) && (e.key === "r" || e.key === "R")) return true;
+  return false;
+}
+
 function openQuitQuizModal(pendingPartId) {
   if (!els.quitQuizModal) return;
+  closeReloadConfirmModal();
   quitModalPendingPartId = pendingPartId;
   els.quitQuizModal.hidden = false;
   requestAnimationFrame(() => els.quitModalConfirm?.focus());
@@ -155,6 +192,7 @@ function startQuizTimer() {
 }
 
 function showStage(name) {
+  if (els.stagePick) els.stagePick.hidden = name !== "pick";
   els.stageStart.hidden = name !== "start";
   els.stageQuiz.hidden = name !== "quiz";
   els.stageResult.hidden = name !== "result";
@@ -294,7 +332,7 @@ function syncAccordionPanels() {
   if (!els.quizList) return;
   els.quizList.querySelectorAll(".quiz-accordion-item").forEach((item) => {
     const id = item.dataset.quizId;
-    const open = id === selectedQuizId;
+    const open = selectedQuizId != null && id === selectedQuizId;
     const trigger = item.querySelector(".quiz-accordion-trigger");
     const panel = item.querySelector(".quiz-accordion-panel");
     trigger?.setAttribute("aria-expanded", open ? "true" : "false");
@@ -304,11 +342,24 @@ function syncAccordionPanels() {
   });
 }
 
+function setPlaceholderPageHead() {
+  if (els.currentQuizName) els.currentQuizName.textContent = "Select a quiz";
+  if (els.currentQuizTag) els.currentQuizTag.textContent = "Choose from sidebar";
+  document.title = "Taxi License Quiz";
+}
+
 function setSelectedQuizUI() {
+  if (!selectedQuizId) {
+    setPlaceholderPageHead();
+    if (els.sidebarSubtitle) els.sidebarSubtitle.textContent = "Choose a quiz";
+    syncAccordionPanels();
+    return;
+  }
   const q = quizzes.find((x) => x.id === selectedQuizId) ?? quizzes[0];
-  if (els.currentQuizName) els.currentQuizName.textContent = `Taxi License Model Quiz — ${q.title}`;
-  if (els.currentQuizTag) els.currentQuizTag.textContent = q.subtitle;
+  if (els.currentQuizName) els.currentQuizName.textContent = q.title;
+  if (els.currentQuizTag) els.currentQuizTag.textContent = `${q.questionCount} questions`;
   if (els.sidebarSubtitle) els.sidebarSubtitle.textContent = `Selected: ${q.title}`;
+  document.title = `${q.title} | Taxi License Quiz`;
   syncAccordionPanels();
 }
 
@@ -379,6 +430,12 @@ async function refreshReadyQuizBadges() {
   buildQuizList(availableQuizIds);
 }
 
+function updateWelcomeTitleForPart() {
+  const q = quizzes.find((x) => x.id === selectedQuizId);
+  if (!q || !els.startTitle) return;
+  els.startTitle.textContent = q.title;
+}
+
 async function loadQuestionsFor(file) {
   try {
     const res = await fetch(file, { cache: "no-store" });
@@ -390,6 +447,7 @@ async function loadQuestionsFor(file) {
     questions = data;
     total = questions.length;
     setTotalsUI();
+    updateWelcomeTitleForPart();
     showStage("start");
   } catch (e) {
     throw e;
@@ -435,8 +493,12 @@ injectScoreGradient();
 async function bootstrapApp() {
   availableQuizIds = new Set([quizzes[0].id]);
   buildQuizList(availableQuizIds);
-  await selectQuiz(selectedQuizId);
   await refreshReadyQuizBadges();
+  selectedQuizId = null;
+  questions = [];
+  total = 0;
+  showStage("pick");
+  setSelectedQuizUI();
 }
 
 if (els.btnEnterApp && els.stageLanding && els.appShell) {
@@ -465,6 +527,13 @@ document.addEventListener(
   "click",
   (e) => {
     if (!isQuizActive()) return;
+    if (!els.reloadConfirmModal.hidden) {
+      if (!els.reloadConfirmModal.contains(e.target)) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+      return;
+    }
     if (!els.quitQuizModal.hidden) {
       if (!els.quitQuizModal.contains(e.target)) {
         e.preventDefault();
@@ -484,8 +553,26 @@ document.addEventListener(
   true
 );
 
+window.addEventListener(
+  "keydown",
+  (e) => {
+    if (!isQuizActive()) return;
+    if (!isReloadShortcut(e)) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    openReloadConfirmModal();
+  },
+  true
+);
+
 document.addEventListener("keydown", (e) => {
-  if (e.key !== "Escape" || !els.quitQuizModal || els.quitQuizModal.hidden) return;
+  if (e.key !== "Escape") return;
+  if (!els.reloadConfirmModal?.hidden) {
+    e.preventDefault();
+    closeReloadConfirmModal();
+    return;
+  }
+  if (!els.quitQuizModal || els.quitQuizModal.hidden) return;
   e.preventDefault();
   closeQuitQuizModal();
 });
@@ -500,9 +587,49 @@ if (els.quitModalConfirm) {
   els.quitModalConfirm.addEventListener("click", confirmQuitQuiz);
 }
 
+if (els.reloadModalBackdrop) {
+  els.reloadModalBackdrop.addEventListener("click", closeReloadConfirmModal);
+}
+if (els.reloadModalStay) {
+  els.reloadModalStay.addEventListener("click", closeReloadConfirmModal);
+}
+if (els.reloadModalReload) {
+  els.reloadModalReload.addEventListener("click", confirmReloadPage);
+}
+
 window.addEventListener("beforeunload", (e) => {
-  if (isQuizActive()) {
-    e.preventDefault();
-    e.returnValue = "";
-  }
+  if (!isQuizActive() || allowUnload) return;
+  e.preventDefault();
+  e.returnValue = "";
 });
+
+/**
+ * Toolbar / menu “Reload” uses the Navigation API in Chromium-based browsers.
+ * Intercept the reload, show our modal, then either resolve (stay) or location.reload() (confirm).
+ */
+function setupNavigationReloadGuard() {
+  if (typeof navigation === "undefined" || typeof navigation.addEventListener !== "function") return;
+
+  navigation.addEventListener("navigate", (event) => {
+    if (event.navigationType !== "reload") return;
+    if (!isQuizActive() || allowUnload) return;
+    if (!event.canIntercept) return;
+
+    try {
+      event.intercept({
+        focusReset: "manual",
+        scroll: "manual",
+        async handler() {
+          await new Promise((resolve) => {
+            reloadInterceptResolve = resolve;
+            openReloadConfirmModal();
+          });
+        },
+      });
+    } catch {
+      // No intercept (e.g. unsupported); beforeunload remains the fallback.
+    }
+  });
+}
+
+setupNavigationReloadGuard();

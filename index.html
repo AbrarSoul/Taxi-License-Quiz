@@ -8,19 +8,19 @@
   <title>Taxi License Quiz</title>
   <!-- PNG first: reliable in all browsers; SVG for sharp tabs where supported -->
   <link rel="icon" href="favicon.png?v=3" type="image/png" sizes="64x64" />
-  <link rel="icon" href="icon.svg?v=3" type="image/svg+xml" sizes="any" />
+  <link rel="icon" href="icon.svg?v=4" type="image/svg+xml" sizes="any" />
   <link rel="apple-touch-icon" href="favicon.png?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=16" />
 </head>
 <body class="landing-visible">
   <div class="app-bg" aria-hidden="true"></div>
 
   <section class="landing" id="stageLanding" aria-labelledby="landingTitle">
     <div class="landing-inner">
-      <img class="landing-logo" src="icon.svg?v=3" alt="" width="64" height="64" decoding="async" />
+      <img class="landing-logo" src="car.svg?v=2" alt="" width="72" height="72" decoding="async" />
       <p class="landing-eyebrow">Practice &amp; assessment</p>
       <h1 class="landing-title" id="landingTitle">Taxi License Model Quiz</h1>
       <p class="landing-lede">
@@ -36,7 +36,7 @@
     <aside class="sidebar" aria-label="Quiz parts">
       <div class="sidebar-head">
         <div class="sidebar-brand">
-          <img class="sidebar-mark" src="icon.svg?v=3" alt="" width="36" height="36" decoding="async" />
+          <img class="sidebar-mark" src="car.svg?v=2" alt="" width="36" height="36" decoding="async" />
           <div class="sidebar-brand-text">
             <span class="sidebar-title">Taxi License Quiz</span>
             <span class="sidebar-subtitle" id="sidebarSubtitle">Choose a quiz</span>
@@ -51,19 +51,34 @@
     </aside>
 
     <main class="main-workspace">
-      <header class="topbar">
-        <div class="page-head">
-          <p class="page-head-title" id="currentQuizName">Taxi License Model Quiz</p>
-          <p class="page-head-sub" id="currentQuizTag">Professional assessment</p>
-        </div>
-      </header>
-
       <div class="workspace-body">
+        <article class="workspace-panel card">
+          <header class="workspace-panel-head">
+            <div class="page-head">
+              <span class="page-head-icon" aria-hidden="true">
+                <img src="car.svg?v=2" alt="" width="40" height="40" decoding="async" />
+              </span>
+              <div class="page-head-text">
+                <p class="page-head-title" id="currentQuizName">Select a quiz</p>
+                <p class="page-head-sub" id="currentQuizTag">Choose from sidebar</p>
+              </div>
+            </div>
+          </header>
+          <div class="workspace-panel-body">
 
-    <section class="card stage" id="stageStart" aria-labelledby="startTitle">
+    <section class="stage workspace-pane stage-pick" id="stagePick" aria-labelledby="pickTitle">
+      <div class="pick-empty">
+        <div class="pick-empty-logo" aria-hidden="true">
+          <img src="car.svg?v=2" alt="" width="64" height="64" decoding="async" />
+        </div>
+        <h1 class="pick-empty-title" id="pickTitle">Select a quiz</h1>
+        <p class="pick-empty-sub" id="pickSub">Choose from sidebar</p>
+      </div>
+    </section>
+
+    <section class="stage workspace-pane" id="stageStart" aria-labelledby="startTitle" hidden>
       <div class="card-inner">
-        <p class="eyebrow">Welcome</p>
-        <h1 class="title" id="startTitle">Taxi knowledge assessment</h1>
+        <h1 class="title" id="startTitle"></h1>
         <p class="lede">
           <span id="startQuestionCount">Fifty</span> multiple-choice questions, one point per correct answer. Questions advance one at a time.
           You have <strong>30 minutes</strong> from when you press Start; the countdown is shown during the quiz.
@@ -80,7 +95,7 @@
       </div>
     </section>
 
-    <section class="card stage" id="stageQuiz" hidden aria-live="polite">
+    <section class="stage workspace-pane workspace-pane-quiz" id="stageQuiz" hidden aria-live="polite">
       <div class="quiz-head">
         <div class="quiz-meta">
           <div class="progress-wrap">
@@ -111,7 +126,7 @@
       </div>
     </section>
 
-    <section class="card stage" id="stageResult" hidden aria-labelledby="resultTitle">
+    <section class="stage workspace-pane" id="stageResult" hidden aria-labelledby="resultTitle">
       <div class="card-inner result-inner">
         <p class="eyebrow">Results</p>
         <h1 class="title" id="resultTitle">You are all set</h1>
@@ -134,7 +149,7 @@
       </div>
     </section>
 
-    <section class="card stage" id="stageComingSoon" hidden aria-labelledby="comingSoonTitle">
+    <section class="stage workspace-pane" id="stageComingSoon" hidden aria-labelledby="comingSoonTitle">
       <div class="card-inner">
         <p class="eyebrow">Quiz part</p>
         <h1 class="title" id="comingSoonTitle">Coming soon</h1>
@@ -148,7 +163,7 @@
       </div>
     </section>
 
-    <section class="card stage" id="stageError" hidden>
+    <section class="stage workspace-pane" id="stageError" hidden>
       <div class="card-inner">
         <p class="eyebrow error">Setup</p>
         <h1 class="title">Cannot load questions</h1>
@@ -160,6 +175,9 @@
         <p class="hint-sub">Then visit <code>http://localhost:8080</code></p>
       </div>
     </section>
+
+          </div>
+        </article>
       </div>
     </main>
   </div>
@@ -192,6 +210,39 @@
     </div>
   </div>
 
-  <script type="module" src="app.js?v=14"></script>
+  <div
+    class="modal-root"
+    id="reloadConfirmModal"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="reloadModalTitle"
+    aria-describedby="reloadModalDesc"
+  >
+    <button type="button" class="modal-backdrop" id="reloadModalBackdrop" tabindex="-1" aria-label="Close dialog"></button>
+    <div class="modal-panel">
+      <div class="modal-icon-wrap modal-icon-wrap-refresh" aria-hidden="true">
+        <svg class="modal-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+          <path
+            d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M3 21v-5h5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <h2 class="modal-title" id="reloadModalTitle">Reload this page?</h2>
+      <p class="modal-desc" id="reloadModalDesc">
+        You have a quiz in progress. Reloading will end this attempt and clear your answers for this session.
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost btn-modal" id="reloadModalStay">Stay on page</button>
+        <button type="button" class="btn btn-primary btn-modal" id="reloadModalReload">Reload page</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js?v=20"></script>
 </body>
 </html>

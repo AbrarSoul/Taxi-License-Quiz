@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="taxiBody" x1="4" y1="8" x2="20" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="taxiGlass" x1="9" y1="9" x2="15" y2="13" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a5b4fc" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+  <circle cx="7.25" cy="16.75" r="2.35" fill="#1e293b"/>
+  <circle cx="7.25" cy="16.75" r="0.9" fill="#64748b"/>
+  <circle cx="16.75" cy="16.75" r="2.35" fill="#1e293b"/>
+  <circle cx="16.75" cy="16.75" r="0.9" fill="#64748b"/>
+  <path
+    fill="url(#taxiBody)"
+    d="M3.25 15.2c0-.55.45-1 1-1h.35l1.1-3.2c.25-.7.9-1.15 1.65-1.15h9.3c.75 0 1.4.45 1.65 1.15l1.1 3.2h.35c.55 0 1 .45 1 1v1.55c0 .55-.45 1-1 1H4.25c-.55 0-1-.45-1-1v-1.55z"
+  />
+  <path
+    fill="url(#taxiBody)"
+    d="M6.95 10.85h10.1c.45 0 .85.28 1 .68l.55 1.67H5.4l.55-1.67c.15-.4.55-.68 1-.68z"
+  />
+  <rect x="7.1" y="11.35" width="4.15" height="2" rx="0.4" fill="url(#taxiGlass)"/>
+  <rect x="12.75" y="11.35" width="4.15" height="2" rx="0.4" fill="url(#taxiGlass)"/>
+  <rect x="9.25" y="5.15" width="5.5" height="3.2" rx="0.55" fill="#f59e0b"/>
+  <rect x="9.45" y="5.35" width="5.1" height="2.8" rx="0.4" fill="#fbbf24"/>
+  <path fill="#78350f" d="M11.15 6.35h1.7v.45h-.55v1.1h-.6v-1.1h-.55v-.45z"/>
+  <ellipse cx="20.2" cy="14.35" rx="0.65" ry="0.9" fill="#fef3c7"/>
+  <path stroke="#4338ca" stroke-width="0.45" stroke-linecap="round" d="M4.2 16.9h15.6" opacity="0.5"/>
+</svg>

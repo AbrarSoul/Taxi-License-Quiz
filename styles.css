@@ -316,33 +316,153 @@ body.landing-visible {
   background: transparent;
 }
 
-.topbar {
-  flex-shrink: 0;
+.workspace-panel {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.workspace-panel-head {
+  flex-shrink: 0;
+  padding: clamp(1.35rem, 3.5vw, 1.85rem) clamp(1.5rem, 4vw, 2.25rem) clamp(1rem, 2vw, 1.25rem);
+  background: var(--surface);
+}
+
+.workspace-panel-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Empty state: one centered column (logo + copy); hide duplicate header row */
+.workspace-panel:has(#stagePick:not([hidden])) .workspace-panel-head {
+  display: none;
+}
+
+.workspace-panel:has(#stagePick:not([hidden])) .workspace-panel-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.workspace-panel:has(#stagePick:not([hidden])) .stage-pick {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.pick-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
-  padding: 1rem clamp(1rem, 2.5vw, 1.75rem);
-  background: rgba(248, 250, 252, 0.92);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
+  max-width: 22rem;
+}
+
+.pick-empty-logo {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 14px rgba(79, 70, 229, 0.18);
+}
+
+.pick-empty-logo img {
+  display: block;
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.pick-empty-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.pick-empty-sub {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.workspace-pane {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.workspace-pane-quiz {
+  padding: 0;
+}
+
+.workspace-pane-quiz .quiz-body {
+  padding-left: clamp(1.5rem, 4vw, 2.25rem);
+  padding-right: clamp(1.5rem, 4vw, 2.25rem);
+  padding-bottom: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.workspace-panel-body .workspace-pane > .card-inner {
+  padding-top: clamp(0.5rem, 1.5vw, 0.75rem);
 }
 
 .page-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.page-head-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.15);
+}
+
+.page-head-icon img {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
+.page-head-text {
   min-width: 0;
 }
 
 .page-head-title {
   margin: 0;
-  font-weight: 700;
-  font-size: clamp(1rem, 2.2vw, 1.2rem);
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
   color: inherit;
 }
 
 .page-head-sub {
-  margin: 0.2rem 0 0;
+  margin: 0.15rem 0 0;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
@@ -351,14 +471,14 @@ body.landing-visible {
 .workspace-body {
   flex: 1;
   min-height: 0;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
   padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2.5vw, 2rem) 2rem;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 
-.workspace-body > .card {
-  width: 100%;
-  max-width: none;
+.workspace-body > .workspace-panel {
+  min-height: 0;
 }
 
 .card {
@@ -887,6 +1007,11 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.modal-icon-wrap-refresh {
+  background: rgba(245, 158, 11, 0.14);
+  color: #d97706;
 }
 
 .modal-icon {
