@@ -13,28 +13,45 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <div class="app-bg" aria-hidden="true"></div>
 
-  <main class="shell">
-    <header class="topbar">
-      <div class="brand">
-        <img class="brand-mark" src="icon.svg?v=3" alt="" width="40" height="40" decoding="async" />
-        <div class="brand-text">
-          <span class="brand-name">Taxi License Model Quiz</span>
-          <span class="brand-tag">Professional assessment</span>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Quiz parts">
+      <div class="sidebar-head">
+        <div class="sidebar-brand">
+          <img class="sidebar-mark" src="icon.svg?v=3" alt="" width="36" height="36" decoding="async" />
+          <div class="sidebar-brand-text">
+            <span class="sidebar-title">Taxi License Quiz</span>
+            <span class="sidebar-subtitle" id="sidebarSubtitle">Choose a quiz</span>
+          </div>
         </div>
       </div>
-    </header>
+
+      <nav class="sidebar-nav" aria-label="Available quizzes">
+        <div class="sidebar-section-title">Quiz parts</div>
+        <div class="quiz-list" id="quizList"></div>
+      </nav>
+    </aside>
+
+    <main class="main-workspace">
+      <header class="topbar">
+        <div class="page-head">
+          <p class="page-head-title" id="currentQuizName">Taxi License Model Quiz</p>
+          <p class="page-head-sub" id="currentQuizTag">Professional assessment</p>
+        </div>
+      </header>
+
+      <div class="workspace-body">
 
     <section class="card stage" id="stageStart" aria-labelledby="startTitle">
       <div class="card-inner">
         <p class="eyebrow">Welcome</p>
         <h1 class="title" id="startTitle">Taxi knowledge assessment</h1>
         <p class="lede">
-          Fifty multiple-choice questions, one point per correct answer. Questions advance one at a time.
+          <span id="startQuestionCount">Fifty</span> multiple-choice questions, one point per correct answer. Questions advance one at a time.
           You have <strong>30 minutes</strong> from when you press Start; the countdown is shown during the quiz.
         </p>
         <ul class="bullets">
@@ -54,7 +71,7 @@
         <div class="quiz-meta">
           <div class="progress-wrap">
             <div class="progress-label">
-              <span id="qLabel">Question 1 of 50</span>
+              <span id="qLabel">Question 1 of 0</span>
               <span class="progress-pct" id="qPct">0%</span>
             </div>
             <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
@@ -92,7 +109,7 @@
             </svg>
             <div class="score-center">
               <span class="score-value" id="finalScore">0</span>
-              <span class="score-denom">/ 50</span>
+              <span class="score-denom" id="scoreDenom">/ 0</span>
             </div>
           </div>
         </div>
@@ -103,20 +120,64 @@
       </div>
     </section>
 
+    <section class="card stage" id="stageComingSoon" hidden aria-labelledby="comingSoonTitle">
+      <div class="card-inner">
+        <p class="eyebrow">Quiz part</p>
+        <h1 class="title" id="comingSoonTitle">Coming soon</h1>
+        <p class="lede" id="comingSoonText">
+          This quiz part isn’t available yet. Add the matching questions JSON file to enable it.
+        </p>
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" id="btnTryLoadPart">I added the file — load now</button>
+          <button type="button" class="btn btn-primary" id="btnBackToPart1">Go to Part 1</button>
+        </div>
+      </div>
+    </section>
+
     <section class="card stage" id="stageError" hidden>
       <div class="card-inner">
         <p class="eyebrow error">Setup</p>
         <h1 class="title">Cannot load questions</h1>
         <p class="lede" id="errorText">
-          Open this folder with a local web server so <code>questions.json</code> can load (browsers block file access from <code>file://</code>).
+          Open this folder with a local web server so <code>questions1.json</code> can load (browsers block file access from <code>file://</code>).
         </p>
         <p class="hint">From this folder in PowerShell:</p>
         <pre class="code-block">python -m http.server 8080</pre>
         <p class="hint-sub">Then visit <code>http://localhost:8080</code></p>
       </div>
     </section>
-  </main>
+      </div>
+    </main>
+  </div>
 
-  <script type="module" src="app.js?v=5"></script>
+  <div
+    class="modal-root"
+    id="quitQuizModal"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="quitModalTitle"
+    aria-describedby="quitModalDesc"
+  >
+    <button type="button" class="modal-backdrop" id="quitModalBackdrop" tabindex="-1" aria-label="Close dialog"></button>
+    <div class="modal-panel">
+      <div class="modal-icon-wrap" aria-hidden="true">
+        <svg class="modal-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+          <path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <h2 class="modal-title" id="quitModalTitle">Quit this quiz?</h2>
+      <p class="modal-desc" id="quitModalDesc">
+        If you leave now, your progress on this attempt will be lost. The timer will stop and you will return to the welcome screen.
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost btn-modal" id="quitModalCancel">Stay in quiz</button>
+        <button type="button" class="btn btn-primary btn-modal" id="quitModalConfirm">Quit quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js?v=13"></script>
 </body>
 </html>

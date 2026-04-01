@@ -1,0 +1,560 @@
+[
+    {
+      "id": 1,
+      "question": "Mitä tarkoittaa liikennemerkki “Yhtenäinen nopeusrajoitus”?",
+      "options": [
+        "Kaikki ajoneuvot samat nopeusrajoitukset",
+        "Eri nopeudet eri kaistoilla",
+        "Ei rajoitusta",
+        "Pysäytä"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 2,
+      "question": "Mikä on oikea toiminta, jos jalankulkija ylittää suojatien?",
+      "options": [
+        "Pysähdy, anna tietä",
+        "Aja varoen",
+        "Jatka normaalisti",
+        "Soita poliisille"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 3,
+      "question": "Milloin käytetään hätävilkkua?",
+      "options": [
+        "Pysähdyttäessä tien varteen",
+        "Liikkeellä ollessa",
+        "Parkkipaikalla",
+        "Ei koskaan"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 4,
+      "question": "Mikä on sallittu nopeus maantiellä, jos liikennemerkki näyttää 80 km/h?",
+      "options": [
+        "70 km/h",
+        "80 km/h",
+        "90 km/h",
+        "100 km/h"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 5,
+      "question": "Milloin saa ajaa bussikaistaa lukuun ottamatta linja-autoa ja taksia?",
+      "options": [
+        "Koskaan",
+        "Jos ohitat ruuhkan",
+        "Vain öisin",
+        "Vain, jos asiakas pyytää"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 6,
+      "question": "Mikä seuraavista on oikea väistämistapa liittymässä?",
+      "options": [
+        "Vasemmalta tulevat väistävät",
+        "Oikealta tulevat väistävät",
+        "Molemmat väistävät",
+        "Se, jolla on kiire"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 7,
+      "question": "Mitä tehdä, jos tie on liukas lumesta?",
+      "options": [
+        "Hidasta ja pidä turvaväliä",
+        "Nopeuta",
+        "Käännä rattia nopeasti",
+        "Jatka normaalisti"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 8,
+      "question": "Milloin saa ajaa moottoritiellä nopeusrajoituksen yli hätätilanteessa?",
+      "options": [
+        "Jos asiakas pyytää",
+        "Jos vaarantamatta muita",
+        "Ei koskaan",
+        "Jos tie on tyhjä"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 9,
+      "question": "Kuinka monta promillea alkoholia saa olla kuljettajalla?",
+      "options": [
+        "0,2",
+        "0,5",
+        "1,0",
+        "0,0"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": 10,
+      "question": "Mitä tarkoittaa “liikenteen sujuvuuden turvaaminen”?",
+      "options": [
+        "Noudata liikennesääntöjä ja etuajo-oikeuksia",
+        "Aja niin nopeasti kuin mahdollista",
+        "Väistä aina oikealta",
+        "Käännä auto pois tiestä"
+      ],
+      "correctIndex": 0
+    },
+  
+    {
+      "id": 11,
+      "question": "Mitä tulee tehdä risteyksessä, jossa on liikennevalo, mutta se ei toimi?",
+      "options": [
+        "Pysähdy ja noudata väistämisvelvollisuutta",
+        "Aja nopeasti",
+        "Ainoastaan oikealta tuleva väistää",
+        "Jatka normaalisti"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 12,
+      "question": "Milloin on pakollista käyttää talvirenkaita?",
+      "options": [
+        "1.11.–31.3.",
+        "1.10.–30.4.",
+        "1.12.–28.2.",
+        "15.10.–15.4."
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 13,
+      "question": "Mikä seuraavista on liikenneturvallisuutta vaarantava teko?",
+      "options": [
+        "Turvavyön käyttäminen",
+        "Puhelimen käyttö ilman handsfree-laitetta",
+        "Nopeuden noudattaminen",
+        "Liikennemerkkejä seuraaminen"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 14,
+      "question": "Mikä on oikea seuraamusetäisyys kuivalla tiellä moottoritiellä 120 km/h?",
+      "options": [
+        "30 m",
+        "60 m",
+        "90 m",
+        "120 m"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 15,
+      "question": "Kuinka toimitaan, jos näet koululaisia tien vieressä odottamassa bussia?",
+      "options": [
+        "Hidasta ja valmistaudu pysähtymään",
+        "Aja normaalisti",
+        "Soita poliisille",
+        "Ohita nopeasti"
+      ],
+      "correctIndex": 0
+    },
+  
+    {
+      "id": 16,
+      "question": "Mikä on taksinkuljettajan velvollisuus asiakkaan terveydentilan suhteen?",
+      "options": [
+        "Ei mitään",
+        "Tarvittaessa auttaa turvallisesti kyydissä",
+        "Kieltäytyä kyydistä aina",
+        "Veloittaa lisämaksu"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 17,
+      "question": "Voiko taksi käyttää asiakastietoja markkinointiin ilman lupaa?",
+      "options": [
+        "Kyllä",
+        "Ei",
+        "Jos asiakas on vanha",
+        "Jos asiakas hyväksyy suullisesti"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 18,
+      "question": "Kuinka usein taksi tarkastetaan teknisesti Suomessa?",
+      "options": [
+        "1 vuoden välein",
+        "6 kuukauden välein",
+        "2 vuoden välein",
+        "Ei tarvita"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 19,
+      "question": "Mikä on voimassa oleva taksilupa?",
+      "options": [
+        "5 vuotta",
+        "3 vuotta",
+        "7 vuotta",
+        "10 vuotta"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 20,
+      "question": "Saako taksi veloittaa lisämaksua ruuhka-ajasta?",
+      "options": [
+        "Kyllä, hinnaston mukaan",
+        "Ei koskaan",
+        "Vain asiakkaan pyynnöstä",
+        "Vain yöllä"
+      ],
+      "correctIndex": 0
+    },
+  
+    {
+      "id": 21,
+      "question": "Kuinka toimia, jos asiakas pyytää matkaa, joka ylittää kaupungin rajat?",
+      "options": [
+        "Aja aina",
+        "Kysy lupaa ja varmista sopimus",
+        "Kieltäydy",
+        "Veloita ylimääräinen summa"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 22,
+      "question": "Saako taksinkuljettaja kieltäytyä kyydistä, jos asiakas on aggressiivinen?",
+      "options": [
+        "Kyllä",
+        "Ei",
+        "Vain, jos poliisi on paikalla",
+        "Riippuu matkasta"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 23,
+      "question": "Mikä on taksinkuljettajan velvollisuus kyydin aikana, jos asiakas haluaa pysäyttää matkan välissä?",
+      "options": [
+        "Aja loppuun",
+        "Pysäytä turvallisesti ja kirjaa matka",
+        "Kieltäydy",
+        "Veloita koko matka"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 24,
+      "question": "Kuinka taksinkuljettaja voi maksaa asiakaspalvelun laatuvaatimukset?",
+      "options": [
+        "Hyvällä asenteella ja turvallisesti",
+        "Vain nopeudella",
+        "Vain hinnalla",
+        "Ei tarvitse"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 25,
+      "question": "Mikä on tärkein syy kirjata kaikki matkat ja maksut?",
+      "options": [
+        "Verotuksen vuoksi",
+        "Asiakkaan vaatimuksesta",
+        "Kuljettajan muistamiseksi",
+        "Ei ole tärkeää"
+      ],
+      "correctIndex": 0
+    },
+  
+    {
+      "id": 26,
+      "question": "Mitä tehdä, jos asiakas ei puhu suomea?",
+      "options": [
+        "Kieltäytyä kyydistä",
+        "Yrittää kommunikoida selkeästi ja tarvittaessa käyttää apuvälineitä",
+        "Veloittaa lisämaksu",
+        "Ohita asiakas"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 27,
+      "question": "Kuinka varmistaa turvallinen ja miellyttävä matkakokemus?",
+      "options": [
+        "Aja nopeasti",
+        "Noudata liikennesääntöjä, kohtelias käytös",
+        "Puhumatta mitään",
+        "Kysy vain hintaa"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 28,
+      "question": "Mitä tehdä, jos asiakas unohtaa tavarat autoon?",
+      "options": [
+        "Säilytä ja ilmoita asiakkaalle",
+        "Heitä pois",
+        "Myy eteenpäin",
+        "Jätä autoon"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 29,
+      "question": "Kuinka toimia, jos asiakas pyytää erityistä reittiä?",
+      "options": [
+        "Noudata toivetta, jos turvallista",
+        "Kieltäydy",
+        "Päätä itse",
+        "Aja lyhintä reittiä aina"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 30,
+      "question": "Kuinka toimia, jos asiakas on humalassa?",
+      "options": [
+        "Kieltäydy kyydistä tarvittaessa",
+        "Aja normaalisti",
+        "Veloita lisämaksu",
+        "Jätä tien varteen"
+      ],
+      "correctIndex": 0
+    },
+  
+    {
+      "id": 31,
+      "question": "Mitä tehdä, jos asiakas haluaa hiljaisen matkan?",
+      "options": [
+        "Kunnioita pyyntöä",
+        "Jatka small talkia",
+        "Kieltäydy kyydistä",
+        "Pyydä asiakasta puhumaan"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 32,
+      "question": "Miten toimia, jos asiakas kysyy tietä tai nähtävyyksiä?",
+      "options": [
+        "Ohjeista ystävällisesti",
+        "Kieltäydy",
+        "Pyydä asiakasta googlaamaan",
+        "Pyydä maksua"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 33,
+      "question": "Kuinka toimia, jos asiakas käyttäytyy epäkohteliaasti?",
+      "options": [
+        "Riitele",
+        "Säilytä rauhallisuus",
+        "Kieltäydy kyydistä",
+        "Poistu kyydistä"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 34,
+      "question": "Kuinka käsitellä asiakkaan tavaroita kyydissä?",
+      "options": [
+        "Säilytä huolellisesti",
+        "Heitä pois",
+        "Veloita ylimääräistä",
+        "Ei väliä"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 35,
+      "question": "Kuinka toimia, jos asiakas pyytää erikoispalvelua (esim. pyörätuoli)?",
+      "options": [
+        "Tarjoa apua, jos mahdollista",
+        "Kieltäydy",
+        "Veloita lisämaksu",
+        "Päätä itse"
+      ],
+      "correctIndex": 0
+    },
+  
+    {
+      "id": 36,
+      "question": "Mitä tehdä, jos auto hajoaa keskellä tietä?",
+      "options": [
+        "Jatka ajamista",
+        "Pysäytä turvallisesti, laita varoituskolmio",
+        "Odota ilman varoitusta",
+        "Jatka hiljaa"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 37,
+      "question": "Kuinka usein tarkastetaan jarrut ja renkaat?",
+      "options": [
+        "Päivittäin",
+        "Viikoittain",
+        "Kuukausittain",
+        "Vuosittain"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 38,
+      "question": "Mitä tehdä, jos tiellä tapahtuu onnettomuus?",
+      "options": [
+        "Jatka matkaa",
+        "Tarjoa apua ja soita hätäkeskukseen",
+        "Ota valokuvia",
+        "Käänny pois"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 39,
+      "question": "Kuinka varmistaa asiakkaiden turvallisuus nousemalla ja poistumassa kyydistä?",
+      "options": [
+        "Tarjoa apua ja valvo tilanne",
+        "Odota ettei asiakas kompastu",
+        "Ei tarvitse tehdä mitään",
+        "Kysy myöhemmin"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 40,
+      "question": "Kuinka toimia, jos näet tien varrella vaaran (esim. jäälohkare)?",
+      "options": [
+        "Ohita varoen",
+        "Ilmoita hätäpalveluun, varoita muita",
+        "Aja päin",
+        "Jatka normaalisti"
+      ],
+      "correctIndex": 1
+    },
+  
+    {
+      "id": 41,
+      "question": "Mitä tehdä, jos ilmenee tulipalo autossa?",
+      "options": [
+        "Jatka ajamista",
+        "Pysäytä ja evakuoi matkustajat",
+        "Odota palokuntaa autossa",
+        "Poista tavarat"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 42,
+      "question": "Kuinka toimia, jos asiakas loukkaantuu kyydissä?",
+      "options": [
+        "Jatka matkaa",
+        "Soita hätäpalveluun",
+        "Kysy vain onko kaikki ok",
+        "Jätä tien varteen"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 43,
+      "question": "Mitä varusteita on oltava autossa turvallisuuden vuoksi?",
+      "options": [
+        "Ensiapupakkaus, varoituskolmio, sammutin",
+        "Vain ensiapupakkaus",
+        "Vain sammutin",
+        "Ei mitään"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 44,
+      "question": "Kuinka toimia, jos näet auto-onnettomuuden?",
+      "options": [
+        "Jatka matkaa",
+        "Tarjoa apua, soita hätäkeskukseen",
+        "Kuvaile tilanne",
+        "Käänny pois"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 45,
+      "question": "Kuinka toimia, jos kuljettaja tuntee väsymystä?",
+      "options": [
+        "Jatka ajamista",
+        "Pysähdy levähdyspaikalle",
+        "Vaihda kaistaa",
+        "Nopeuta"
+      ],
+      "correctIndex": 1
+    },
+  
+    {
+      "id": 46,
+      "question": "Mikä on Helsingissä tunnettu nähtävyys, jota turistit usein pyytävät nähdä?",
+      "options": [
+        "Senaatintori",
+        "Kallio",
+        "Mellunmäki",
+        "Vuosaari"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 47,
+      "question": "Missä on Helsingin olympiastadion?",
+      "options": [
+        "Pasila",
+        "Kallio",
+        "Töölö",
+        "Meilahti"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 48,
+      "question": "Mikä metroasema sijaitsee lähellä Kamppia?",
+      "options": [
+        "Rautatientori",
+        "Kamppi",
+        "Sörnäinen",
+        "Itäkeskus"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 49,
+      "question": "Missä sijaitsee Linnanmäen huvipuisto?",
+      "options": [
+        "Töölö",
+        "Kallio",
+        "Alppiharju",
+        "Meilahti"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 50,
+      "question": "Mikä on Helsingin keskustan pääkatu?",
+      "options": [
+        "Mannerheimintie",
+        "Hämeentie",
+        "Aleksanterinkatu",
+        "Viikintie"
+      ],
+      "correctIndex": 2
+    }
+  ]

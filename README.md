@@ -1,19 +1,19 @@
 # Taxi License Quiz
 
-A small, static web app for practicing taxi-driver knowledge with **50 multiple-choice questions** (Finnish), a **30-minute** countdown, and immediate feedback after each answer. There is no backend: everything runs in the browser.
+A small, static web app for practicing taxi-driver knowledge (Finnish), with a **30-minute** countdown, immediate feedback after each answer, and **multiple quiz parts** selectable from the left sidebar. There is no backend: everything runs in the browser.
 
 ## Features
 
 - One question at a time, four options (A–D), one point per correct answer
 - Progress bar and timer during the quiz; results screen with score ring
 - Progress is kept only for the current tab session (refresh starts over)
-- Questions load from `questions.json` so you can edit or replace the bank without changing code
+- Quiz parts load questions from JSON files (Part 1 uses `questions1.json`)
 
 ## Requirements
 
 Modern desktop or mobile browser with JavaScript enabled.
 
-Because the app loads `questions.json` with `fetch()`, you **cannot** open `index.html` directly as `file://` in most browsers. Use a local HTTP server instead.
+Because the app loads question JSON files with `fetch()`, you **cannot** open `index.html` directly as `file://` in most browsers. Use a local HTTP server instead.
 
 ## Run locally
 
@@ -42,14 +42,16 @@ Any static file server (VS Code Live Server, `php -S localhost:8080`, etc.) work
 | File | Role |
 |------|------|
 | `index.html` | Page structure and stages (welcome, quiz, results, error) |
-| `app.js` | Quiz logic, timer, loading and validating questions |
+| `app.js` | Quiz logic, timer, sidebar part selection, loading questions |
 | `styles.css` | Layout and styling |
-| `questions.json` | Array of question objects (must contain exactly 50 entries) |
+| `questions1.json` | Part 1 question bank (array of question objects) |
+| `questions2.json` | Part 2 question bank (same format as Part 1) |
+| `questions3.json` | Part 3 question bank (same format as Parts 1–2) |
 | `icon.svg` | Brand mark and favicon (SVG) |
 
 ## Question format
 
-Each entry in `questions.json` looks like this:
+Each entry in a questions file (for example `questions1.json`) looks like this:
 
 ```json
 {
@@ -60,4 +62,10 @@ Each entry in `questions.json` looks like this:
 }
 ```
 
-`correctIndex` is **0-based** (0 = first option). The app expects **50** questions; otherwise it shows the setup error screen.
+`correctIndex` is **0-based** (0 = first option). Each quiz part expects a **non-empty** array of questions; the total is read from the file length.
+
+## Adding Part 2 / Part 3
+
+- Part 1 is `questions1.json`; Part 2 is `questions2.json`; Part 3 is `questions3.json`.
+- Use the exact same JSON format as Part 1 (array of question objects)
+- Deploy as normal; the sidebar will mark parts as **Ready** when the file exists
